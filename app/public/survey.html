@@ -237,21 +237,28 @@
             }
             // Creating object for user info
             if (validation() == true) {
+
                 var userInfo = {
                     name: $('#name').val(),
                     photo: $('#photo').val(),
                     score: [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()]
                 }
+
+                var currentURL = location.origin;
+
                 // AJAX post to storage file
-                $.post('/api/friends', userInfo, function (data) {
+                $.post(currentURL + '/api/friends', userInfo, function (data) {
+
                     $('#matchName').text(data.name);
                     $('#matchPhoto').attr('src', data.photo);
 
                     $('#matchModal').modal('toggle');
                 })
+
             } else {
                 alert('Please answer all the questions before submitting!')
             }
+
             return false;
         });
     </script>
