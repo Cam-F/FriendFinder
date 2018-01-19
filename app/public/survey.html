@@ -5,16 +5,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title Page</title>
+    <title>FriendFinder</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Chosen -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.2/chosen.jquery.js">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- FontAwesome Glyph Icons -->
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -34,13 +35,14 @@
     </div>
 
     <!-- Survey Section -->
-    <div class="container text-center">
+    <div class="container">
         <!-- Question 1 -->
         <h3>
             <strong>Question 1</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q1" required="required">
+        <select class="form-control" id="q1" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -53,7 +55,8 @@
             <strong>Question 2</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q2" required="required">
+        <select class="form-control" id="q2" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -66,7 +69,8 @@
             <strong>Question 3</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q3" required="required">
+        <select class="form-control" id="q3" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -79,7 +83,8 @@
             <strong>Question 4</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q4" required="required">
+        <select class="form-control" id="q4" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -92,7 +97,8 @@
             <strong>Question 5</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q5" required="required">
+        <select class="form-control" id="q5" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -105,7 +111,8 @@
             <strong>Question 6</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q6" required="required">
+        <select class="form-control" id="q6" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -118,7 +125,8 @@
             <strong>Question 7</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q7" required="required">
+        <select class="form-control" id="q7" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -131,7 +139,8 @@
             <strong>Question 8</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q8" required="required">
+        <select class="form-control" id="q8" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -144,7 +153,8 @@
             <strong>Question 9</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q9" required="required">
+        <select class="form-control" id="q9" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -157,7 +167,8 @@
             <strong>Question 10</strong>
         </h3>
         <h4>Test Question</h4>
-        <select class="chosen-select" id="q10" required="required">
+        <select class="form-control" id="q10" required="required">
+            <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -168,14 +179,53 @@
         <br>
         <br>
         <!-- Submit button -->
-        <a class="btn btn-primary btn-lg" style="width: 80%">Submit</a>
+        <a class="btn btn-primary btn-lg" id="submit" style="width: 80%">Submit</a>
 
         <hr>
 
-        <a href="#">API Friends List</a> |
-        <a href="#">GitHub Repo</a>
-
+        <a href="/api/friends">API Friends List</a> |
+        <a href="https://github.com/Cam-F/FriendFinder">GitHub Repo</a>
     </div>
+
+    <!-- On sheet CSS -->
+    <style>
+        .form-control {
+            align-content: center;
+            width: 25%;
+        }
+
+        #name {
+            width: 50%;
+        }
+
+        #photo {
+            width: 50%;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        // Capture form inputs
+        $('#submit').on('click', function () {
+
+            // Validating the form
+            function validation() {
+                var valid = true;
+                $('.form-control').each(function () {
+                    if ($(this).val() === '')
+                        valid = false;
+                });
+                return valid;
+            }
+            if (validation() == true) {
+                var userInfo = {
+                    name: $('#name').val(),
+                    photo: $('#photo').val(),
+                    score: [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()];
+                }
+            }
+        })
+    </script>
 </body>
 
 </html>
