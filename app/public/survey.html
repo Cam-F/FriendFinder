@@ -14,7 +14,7 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- FontAwesome Glyph Icons -->
-    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"> -->
 
 </head>
 
@@ -205,6 +205,7 @@
             </div>
         </div>
     </div>
+
     <!-- On sheet CSS -->
     <style>
         .form-control {
@@ -244,15 +245,16 @@
                     score: [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()]
                 }
 
-                // var currentURL = location.origin;
+                // THIS IS WHERE THE ERROR IS -------
 
                 // AJAX post to storage file
                 $.post('/api/friends', userInfo, function (data) {
 
-                    $('#matchName').text(data.name);
-                    $('#matchPhoto').attr('src', data.photo);
+                    console.log(data);
+                    // $('#matchName').text(data.name);
+                    // $('#matchPhoto').attr('src', data.photo);
 
-                    $('#matchModal').modal('toggle');
+                    // $('#matchModal').modal('toggle');
                 })
 
             } else {
