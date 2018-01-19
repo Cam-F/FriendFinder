@@ -244,10 +244,10 @@
                     score: [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()]
                 }
 
-                var currentURL = location.origin;
+                // var currentURL = location.origin;
 
                 // AJAX post to storage file
-                $.post(currentURL + '/api/friends', userInfo, function (data) {
+                $.post('/api/friends', userInfo, function (data) {
 
                     $('#matchName').text(data.name);
                     $('#matchPhoto').attr('src', data.photo);
