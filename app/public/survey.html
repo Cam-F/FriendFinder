@@ -187,6 +187,24 @@
         <a href="https://github.com/Cam-F/FriendFinder">GitHub Repo</a>
     </div>
 
+    <!-- Modal -->
+    <div id="matchModal" class="modal fade" role="dialog">
+        <div class="modal dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h2 class="modal-title">Best Match</h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="matchName"></h2>
+                    <img id="matchPhoto">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- On sheet CSS -->
     <style>
         .form-control {
@@ -217,14 +235,25 @@
                 });
                 return valid;
             }
+            // Creating object for user info
             if (validation() == true) {
                 var userInfo = {
                     name: $('#name').val(),
                     photo: $('#photo').val(),
-                    score: [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()];
+                    score: [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()]
                 }
+                // AJAX post to storage file
+                $.post('/api/friends', userInfo, function (data) {
+                    $('#matchName').text(data.name);
+                    $('#matchPhoto').attr('src', data.photo);
+
+                    $('#matchModal').modal('toggle');
+                })
+            } else {
+                alert('Please answer all the questions before submitting!')
             }
-        })
+            return false;
+        });
     </script>
 </body>
 
